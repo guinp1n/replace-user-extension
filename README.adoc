@@ -1,0 +1,39 @@
+:hivemq-link: https://www.hivemq.com
+:hivemq-extension-docs: {hivemq-link}/docs/extensions/latest/
+:hivemq-mqtt-toolbox: {hivemq-link}/mqtt-toolbox
+:hivemq-support: {hivemq-link}/support/
+:hivemq-testcontainer: https://github.com/hivemq/hivemq-testcontainer
+:hivemq-mqtt-client: https://github.com/hivemq/hivemq-mqtt-client
+
+= HiveMQ 4 Replace User Extension
+
+== Purpose
+
+=== Trigger Condition:
+
+The extension is triggered when an MQTT client attempts to connect to the HiveMQ broker.
+It checks if the "UserName" field in the CONNECT packet is empty.
+
+=== Modification Action:
+
+If the "UserName" is found to be empty, the extension intervenes and modifies the CONNECT packet.
+It sets the "UserName" to `default` and the "Password" field to `default`.
+
+== Installation
+
+. Clone this repository into a Java 11 Gradle project.
+. Execute the Gradle task `hivemqExtensionZip` to build the extension.
+. Move the file: `build/hivemq-extension/hivemq-replace-user-extension-4.22.0.zip` to the directory: `HIVEMQ_HOME/extensions`
+. Unzip the file.
+. Start HiveMQ.
+
+
+== Need Help?
+
+If you encounter any problems, we are happy to help.
+The best place to get in contact is our {hivemq-support}[support^].
+
+== License
+
+HiveMQ Replace User Extension is licensed under the `APACHE LICENSE, VERSION 2.0`.
+A copy of the license can be found link:LICENSE[here].
